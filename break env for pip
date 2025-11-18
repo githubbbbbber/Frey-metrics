@@ -1,0 +1,19 @@
+
+
+###
+# Create a temporary config to disable externally-managed environment
+mkdir -p ~/.config/pip/
+cat > ~/.config/pip/pip.conf << EOF
+[global]
+break-system-packages = true
+EOF
+
+# Now try installing
+python3.11 get-pip.py
+python3.11 -m pip install ipykernel
+
+###
+python3.11 -m pip install --break-system-packages ipykernel
+
+###
+pip install numpy pandas matplotlib scipy
